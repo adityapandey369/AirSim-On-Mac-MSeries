@@ -1,3 +1,24 @@
+## AirSim-On-Mac-MSeries
+
+git clone --recursive https://github.com/microsoft/AirSim.git
+Recursive flag is essential it pulls in all submodules like MavLinkCom, rpclib, and AirLib
+
+From your AirSim root folder:
+cd AirSim
+rm -rf build_release
+
+Create a fresh build folder and configure CMake manually:
+mkdir build_release
+cd build_release
+/opt/homebrew/bin/cmake ../cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_APPLE_SILICON_PROCESSOR=arm64
+This explicitly tells CMake to target arm64, your native Apple Silicon architecture
+
+Setup & Build
+./setup.sh
+make -j$(sysctl -n hw.ncpu)
+That will compile everything natively for ARM64
+
+
 ## Project AirSim announcement
 
 Microsoft and IAMAI collaborated to advance high-fidelity autonomy simulations through Project AirSim—the evolution of AirSim— released under the MIT license as part of a DARPA-supported initiative.  IAMAI is proud to have contributed to these efforts and has published its version of the Project AirSim repository at [github.com/iamaisim/ProjectAirSim](https://github.com/iamaisim/ProjectAirSim).
@@ -162,5 +183,6 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ## License
 
 This project is released under the MIT License. Please review the [License file](LICENSE) for more details.
+
 
 
