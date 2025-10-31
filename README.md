@@ -20,7 +20,10 @@ This explicitly tells CMake to target arm64, your native Apple Silicon architect
 Setup & Build
 
 ./setup.sh
-make -j$(sysctl -n hw.ncpu)
+
+Inside AirSim/Unreal/Environments/Blocks
+
+Blocks.uproject make -j$(sysctl -n hw.ncpu)
 
 That will compile everything natively for ARM64
 
@@ -189,6 +192,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ## License
 
 This project is released under the MIT License. Please review the [License file](LICENSE) for more details.
+
 
 
 
