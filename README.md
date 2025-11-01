@@ -1,5 +1,7 @@
 ## AirSim-On-Mac-MSeries
 
+## OFFICIAL GIT HUB REPO: https://github.com/Microsoft/AirSim.git
+
 git clone --recursive https://github.com/microsoft/AirSim.git
 
 Recursive flag is essential it pulls in all submodules like MavLinkCom, rpclib, and AirLib
@@ -26,6 +28,22 @@ Inside AirSim/Unreal/Environments/Blocks
 Blocks.uproject make -j$(sysctl -n hw.ncpu)
 
 That will compile everything natively for ARM64
+
+Run "./GenerateProjectFiles.sh <UE_PATH>" from the terminal, where UE_PATH is the path to the Unreal installation folder. (By default, this is /Users/Shared/Epic\ Games/UE_4.27/) The script creates an XCode workspace by the name Blocks.xcworkspace.
+
+##Open the Workspace in Xcode
+
+AirSim/Unreal/Environments/Blocks/Blocks.xcworkspace
+
+In the Xcode Project Navigator
+
+Blocks → TARGETS → Build Settings
+
+Enable Info.plist Generation
+
+GENERATE_INFOPLIST_FILE = YES
+
+<img width="1440" height="900" alt="image" src="https://github.com/user-attachments/assets/34b8d7d8-d5fd-4e22-b1cd-56dd403ccf5c" />
 
 
 ## Project AirSim announcement
@@ -192,6 +210,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ## License
 
 This project is released under the MIT License. Please review the [License file](LICENSE) for more details.
+
 
 
 
